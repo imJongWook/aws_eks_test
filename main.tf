@@ -34,7 +34,7 @@ module "aws_eks_cluster" {
   private_subnets  = ["192.168.10.0/24", "192.168.20.0/24"]
   database_subnets = ["192.168.30.0/24", "192.168.40.0/24"]
   cluster_name     = "my-eks"
-  cluster_version  = "1.30"
+  cluster_version  = "1.32"
   cluster_admin    = data.aws_iam_user.EKS_Admin_ID.user_id
 }
 
@@ -65,7 +65,7 @@ output "bastionhost_ip" {
 
 # AWS RDS ( CI/CD에서 사용 예정 ) 
 
-/* module "aws_eks_rds" {
+module "aws_eks_rds" {
   source      = "./modules/rds"
   db_port     = 3306
   db_name     = "django_db"
@@ -87,4 +87,4 @@ module "ecr" {
   tags = {
     Terraform = "true"
   }
-} */
+} 
